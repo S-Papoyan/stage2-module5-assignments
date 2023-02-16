@@ -13,15 +13,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LocalProcessor {
-    private String processorName;
-    private Long period;
-    private StringBuilder processorVersion;
-    private Integer valueOfCheap;
+    private String processorName = "";
+    private Long period = 10_000_000_000_000L;
+    private StringBuilder processorVersion = new StringBuilder();
+    private Integer valueOfCheap = 0;
     private Scanner informationScanner;
-    private LinkedList<String> stringArrayList;
+    private List<String> stringArrayList = new ArrayList<>(0);
 
     public LocalProcessor(String processorName, Long period, String processorVersion, Integer valueOfCheap,
-                          Scanner informationScanner, LinkedList<String> stringArrayList) {
+                          Scanner informationScanner, List<String> stringArrayList) {
         this.processorName = processorName;
         this.period = period;
         this.processorVersion.append(processorVersion != null ? processorVersion : "");
