@@ -3,6 +3,7 @@ package assignments;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Scanner;
 
 import assignments.annotations.FullNameProcessorGeneratorAnnotation;
@@ -36,10 +37,11 @@ public class LocalProcessor {
 
     @ListIteratorAnnotation
     public void listIterator(LinkedList<String> stringList) {
-        stringArrayList = new LinkedList<>(stringList);
-        for (int i = 0; i < period; i++) {
-            System.out.println(stringArrayList.get(i).hashCode());
-        }
+        stringList
+                .stream()
+                .filter(Objects::nonNull)
+                .mapToInt(Objects::hashCode)
+                .forEach(System.out::println);
     }
 
     @FullNameProcessorGeneratorAnnotation
